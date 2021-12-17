@@ -1,6 +1,8 @@
+import os
 from detectron2.config import CfgNode as CN
 
-
+_src_dir = os.path.dirname(__file__)
+_ISTR_dir = os.path.realpath(os.path.dirname(_src_dir))
 def add_ISTR_config(cfg):
     """
     Add config for ISTR.
@@ -49,4 +51,4 @@ def add_ISTR_config(cfg):
     cfg.MODEL.ISTR.IOU_LABELS = [0, 1]
 
     # Encoder
-    cfg.MODEL.ISTR.PATH_COMPONENTS = "./projects/ISTR/LME/coco_2017_train_class_agnosticTrue_whitenTrue_sigmoidTrue_60_siz28.npz"
+    cfg.MODEL.ISTR.PATH_COMPONENTS = f"{_ISTR_dir}/LME/coco_2017_train_class_agnosticTrue_whitenTrue_sigmoidTrue_60_siz28.npz"
